@@ -42,6 +42,13 @@ class Client(object):
                   "max_results": max_results or self.max_results}
         return self._make_request('/address/autoComplete', params)
 
+    def info(self, term):
+        """
+        Looks up an address.
+        """
+        params = {"term": term}
+        return self._make_request('/addresspro/info', params)
+
     def address_line_auto_complete(self, term, state=None, postcode=None,
                                    max_results=None):
         """
