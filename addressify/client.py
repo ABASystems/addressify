@@ -27,7 +27,7 @@ class Client(object):
     def _make_request(self, path, params={}):
         params['api_key'] = self._api_key
         url = "{0}{1}".format(self.BASE_URL, path)
-        params = dict(filter(lambda x: x[1] != None, params.iteritems()))
+        params = dict(filter(lambda x: x[1] != None, params.items()))
         try:
             return requests.get(url, params=params).json()
         except requests.HTTPError:
