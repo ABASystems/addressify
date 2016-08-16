@@ -33,14 +33,16 @@ class Client(object):
         except requests.HTTPError:
             return None
 
-    def auto_complete(self, term, state=None, postcode=None, max_results=None):
+    def auto_complete(self, term, state=None, postcode=None, max_results=None,
+                      pro=False):
         """
         Gets a list of addresses that begin with the given term.
         """
         self._validate_state(state)
         params = {"term": term, "state": state, "postcode": postcode,
                   "max_results": max_results or self.max_results}
-        return self._make_request('/address/autoComplete', params)
+        prefix = 'addresspro' if pro else 'address'
+        return self._make_request('/%s/autoComplete' % prefix, params)
 
     def info(self, term):
         """
