@@ -9,7 +9,7 @@ from .exceptions import InvalidStateError, InvalidApiKeyError
 
 class Client(object):
 
-    BASE_URL = 'http://api.addressify.com.au'
+    BASE_URL = 'https://api.addressify.com.au'
     GUID_REGEX = re.compile(r"^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$")
 
     VALID_STATES = ('NSW', 'ACT', 'VIC', 'QLD', 'SA', 'WA', 'NT', 'TAS')
